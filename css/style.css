@@ -1,0 +1,109 @@
+
+/* === Basic Reset === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+@font-face {
+  font-family: "Bungee";
+  src: url("../fonts/Bungee/Bungee-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+
+:root {
+
+}
+
+header{
+    /* === Navigation Bar === */
+    nav {
+        background-color: lightblue;
+        border-bottom: 2px solid #e0e0e0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    .main-menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        padding: 0.75rem 1rem;
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .main-menu li {
+        margin: 0 0.5rem;
+        font-size: 1.25rem;
+        font-family: 'Bungee','Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+    }
+
+    
+
+    nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        padding: 0.4rem 0.8rem;
+        border-radius: 8px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    nav a:hover {
+        background-color: #f0f0f0;
+    }
+
+    #menu-toggle {
+        display: none;
+    }
+
+    .menu-icon {
+        display: none;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .main-menu {
+            flex-direction: column;
+            display: none;
+            align-items:flex-start;
+            padding: 10px;
+        }
+
+        .main-menu li {
+            margin: 0.5rem;
+        }
+
+        .menu-icon {
+            padding: 1rem;
+            display: block;
+            align-items: flex-end;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1.5em;
+        }
+
+        #menu-toggle:checked + .menu-icon + .main-menu {
+            display: flex;
+        }
+    }
+
+
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #FFFFFF;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: "", serif;
+}
