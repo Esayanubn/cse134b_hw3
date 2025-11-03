@@ -7,15 +7,7 @@
   <meta name="description" content="Personal portfolio homepage.">
   <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
   <link rel="stylesheet" href="css/style.css"></link>
-  <style>
-    contact-info {
-      display: block;
-      background: #f8f9fa;
-      padding: 1rem;
-      border-radius: 4px;
-      margin: 1rem 0;
-    }
-  </style>
+  
   <script>
     /* hello-world custom element logs to console (allowed JS for this part) */
     class HelloWorld extends HTMLElement {
@@ -43,41 +35,39 @@
 
   <main>
     <h1>Welcomes to the Portfolio of Kefan Xu 
-        <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="18" stroke="black" fill="none"/>
-            <text x="10" y="25" font-size="12">KX</text>
-        </svg>
     </h1>
 
     <section>
         <h2 id="intro">Intro & Motto</h2>
-        <table >
-        <tr>
-            <td>
+        
             <p>Hi I'm <strong> Kefan Xu</strong></p>
-            <p> <i>"一生分の長さを ざっと115万キロ"</i> </p>
+            <p class="need-ruby"> 
+              <ruby>
+                一生<rt>いっしょう</rt>
+              </ruby>
+              分の
+              <ruby>
+                長さ<rt>ながさ</rt>
+              </ruby>
+              を<br> ざっと
+              <ruby>
+                115万<rt>ひゃくじゅうごまん</rt>
+                キロ<rt>きろ</rt>
+              </ruby>
+            </p>
             
-            <p><em>Motto:Everything is the best plan</em> </p>
-            </td>
-            <td>
             <picture>
                 <source srcset="assets/img/avatar.jpg" type="image/webp">
                 <img src="assets/img/avatar.jpg" alt="avatar" width="120">
             </picture>
-            </td>
-        </tr>
-        </table>
-        <p><strong>Hometown:</strong> Wenling Taizhou Zhejiang China</p>
-        <iframe 
-            width="425" 
-            height="350" 
-            src="https://www.openstreetmap.org/export/embed.html?bbox=120.84686279296876%2C27.449790329784214%2C122.48931884765626%2C29.224096165685427&amp;layer=mapnik" 
-        ></iframe>
+            
         
-        
+    </section>
 
-        <h3>Highlights</h3>
-        <ul>
+    <section >
+
+        <h2>Highlights</h2>
+        <ul class="two-column">
             <li>🎓 MS in ECE at UCSD (Machine Learning & Data Science Track)</li>
             <li>💼 Software Developer Intern at AntGroup (Enterprise Risk) & Ericsson (Automation Tools)</li>
             <li>🔬 Research: Recommender Systems, Deep Learning, Chaos Engineering</li>
@@ -90,7 +80,7 @@
 
     <section >
       <h2 id="projects">Featured Projects</h2>
-      <ul>
+      <ul class="two-column">
         <li>🎵 Amazon Music Recommender System — Collaborative filtering & deep learning with PyTorch</li>
         <li>🖥️ Mini RISC-V OS — Complete OS implementation with process scheduling & virtual memory</li>
         <li>🌐 TCP Connection Protocol — High-performance network protocol achieving 190 Mbit/s</li>
@@ -100,33 +90,20 @@
 
     <section>
       <h2 id="blogs">Latest blog posts</h2>
-      <ol>
+      <ol class="two-column">
         <li><a href="blogs/blog1/index.html">Modern Web Development: Building Scalable Applications</a></li>
         <li><a href="blogs/blog2/index.html">LLMs for Programming: The Future of Code Generation</a></li>
       </ol>
       <p><a href="blogs.html">view more</a></p>
     </section>
 
-    <section>
-      <h2>Extra points: MathML: E = mc²</h2>
-      <!-- MathML markup for extra credit -->
-      <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
-        <mi>E</mi>
-        <mo>=</mo>
-        <mi>m</mi>
-        <msup><mi>c</mi><mn>2</mn></msup>
-      </math>
-
-      <p>
-        Historically MathML was not widely used because browser support was incomplete. Recent browsers have improved support, but cross-browser consistency was a past barrier.
-      </p>
-    </section>
+    
 
     <footer>
-      <contact-info>
-        <p>📧 kefan_xu@outlook.com | 📱 +1 (858) 518-4216</p>
-        <p>© 2025 Kefan Xu</p>
-      </contact-info>
+      <cite>background photo: cover of my favorite album from Yorushika <em>That's Why I Gave Up on Music</em></cite>
+      
+      <p>Copyright©2023-2025 Kefan Xu. All rights reserved.</p>
+      
     </footer>
   </main>
 

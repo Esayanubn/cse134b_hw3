@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Experiments</title>
   <meta name="description" content="Experiment page showcasing HTML elements.">
+  <link rel="icon" href="assets/img/siteicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="css/style.css">
   
   <script>
     /* minimal canvas drawing (under 15 lines) */
@@ -23,19 +25,23 @@
 <body>
   <header>
     <nav aria-label="Main navigation">
-      <ul>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰ Menu</label>
+      <ul class="main-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="blogs.html">Blogs</a></li>
         <li><a href="about.html">About me</a></li>
+        <li><a href="experiments.html">(experiment)</a></li>
       </ul>
     </nav>
+    <hr>
   </header>
 
   <main>
     <h1>Experiment page</h1>
 
-    <section>
+    <section class="media-section">
       <h2>Media elements</h2>
 
       <picture>
@@ -54,7 +60,7 @@
       </video>
     </section>
 
-    <section>
+    <section class="canvas-section">
       <h2>Canvas & Template </h2>
 
       <canvas id="demo5" width="200" height="100"></canvas>
