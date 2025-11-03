@@ -22,6 +22,15 @@
     }
 }
 
+@supports (color: color(display-p3 1 0 0)) {
+    :root {
+        /* display-p3 accent */
+        --accent: color(display-p3 0.38 0.76 1);
+        --accent-weak: color-mix(in oklab, var(--accent), white 85%);
+        --accent-strong: color-mix(in oklab, var(--accent), black 20%);
+    }
+}
+
 
 :root {
     --background-color: #e1f5fa;
@@ -30,12 +39,13 @@
     --text-color:  rgba(255, 255, 255, 1);
     --viewport-height: 100vh;
     --viewport-width: 100vw;
+    --accent: lightblue;
 
 }
 
 header{
     nav {
-        background-color: lightblue;
+        background-color: var(--accent);
         border-bottom: 2px solid #e0e0e0;
         position: sticky;
         top: 0;
@@ -356,7 +366,7 @@ details.project-article > summary p {
 }
 
 details.project-article[open] {
-    box-shadow: 0 4px 12px rgba(211, 158, 15, 0.3);
+    box-shadow: 0 4px 12px color-mix(in oklab, var(--header-footer-color), transparent 70%);
 }
 
 /* project card styles */
@@ -376,8 +386,8 @@ details.project-article[open] {
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(76, 201, 240, 0.4);
-    border-color: rgba(76, 201, 240, 0.5);
+    box-shadow: 0 8px 24px color-mix(in oklab, var(--accent), transparent 60%);
+    border-color: var(--accent);
 }
 
 /* details/summary behavior for project-card */
@@ -409,6 +419,7 @@ details.project-card[open] {
 /* two-column layout only for Other Projects & Research section */
 .other-projects {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
 }
 
 /* when a project-card is open, span full row and push siblings down */
@@ -416,7 +427,56 @@ details.project-card[open] {
     grid-column: 1 / -1;
 }
 
-/* Intro & Motto three-column layout */
+/* New :has() selectors (progressive enhancement) */
+.other-projects:has(> .project-card[open]) {
+    /* subtle section emphasis when any card is open */
+    border-left-color: color-mix(in oklab, var(--accent), white 30%);
+}
+
+details.project-article:has(> summary:hover) {
+    border-left-color: color-mix(in oklab, var(--header-footer-color), white 20%);
+}
+
+/* rainbow animated border around .other-projects when any card is open */
+.other-projects::before {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 16px;
+    padding: 6px; /* border thickness */
+    background: linear-gradient(90deg,
+        #ff0048,
+        #ff7a00,
+        #ffd400,
+        #3bd600,
+        #00e1ff,
+        #0066ff,
+        #7a00ff,
+        #ff00c8,
+        #ff0048
+    );
+    background-size: 200% 100%;
+    background-position: 0% 0;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    z-index: 0;
+}
+
+.other-projects:has(> .project-card[open])::before {
+    opacity: 1;
+    animation: rainbow-slide 4s linear infinite;
+}
+
+@keyframes rainbow-slide {
+    0% { background-position: 0% 0; }
+    100% { background-position: 200% 0; }
+}
+
 .intro-motto {
     display: grid;
     grid-template-columns: 160px 1fr 180px;
